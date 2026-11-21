@@ -6,7 +6,7 @@ Workspace para rodar ofertas **low ticket** (infoproduto barato vendido por anú
 
 Abra o Claude Code ou o Codex numa pasta qualquer e diga:
 
-> Instale este workspace: https://github.com/<usuario>/low-ticket-os
+> Instale este workspace: https://github.com/moiseszip/low-ticket-os
 
 O agente clona, instala as dependências, conecta o que você usa e começa o onboarding. Detalhes e instalação manual em [INSTALL.md](INSTALL.md).
 

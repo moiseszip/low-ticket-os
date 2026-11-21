@@ -64,7 +64,6 @@ docs/processos.md          mapa da esteira de ponta a ponta
 _templates/                brief, avatar, oferta, design system, 3 templates de LP, análise, pesquisa, roteiro, perfil
 templates-preview/         app Next.js com os 3 templates de LP (preview e base de toda LP nova)
 playbooks/                 frameworks de referência (oferta vencedora, validação, escala, funil, upsell)
-swipe/                     referências de copy (ganchos)
 scripts/                   estatico/ (Codex em lote, formatos), video/ (montagem), entregavel/ (HTML→PDF), lp/ (teste de clique), meta/ (subir campanha)
 analises/                  ofertas do mercado analisadas, mineração, ideias
 pesquisas/                 pesquisas de mercado

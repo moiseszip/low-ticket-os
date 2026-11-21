@@ -21,7 +21,6 @@ Manuais de referência da esteira low ticket: frameworks de oferta, validação,
 ## 🛠️ Execução Prática
 
 - [Criação com IA](criacao-ia.md) — Lovable, ChatGPT, Canva, CapCut para criar página + criativos
-- [Case Study: R$ 30k/30d](case-30k.md) — exemplo prático de Natan com PDF de contêineres
 
 ## 🧠 Mentalidade & FAQ
 
