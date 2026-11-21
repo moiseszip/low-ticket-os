@@ -1,0 +1,42 @@
+# segredos e dados pessoais
+.env
+.env.*
+!.env.example
+perfil/operador.md
+*.estado.json
+**/state.json
+**/storage-state*.json
+
+# ambientes e builds
+.venv/
+node_modules/
+.next/
+.vercel/
+.turbo/
+dist/
+build/
+out/
+*.tsbuildinfo
+__pycache__/
+*.pyc
+
+# saídas regeneráveis
+output/
+tmp/
+.playwright-*/
+.hyperframes/
+**/logs/
+**/upload/
+
+# mídia pesada de criativo (versione só o final, se quiser)
+*.mov
+*.wav
+ofertas/**/criativos/**/brutos/
+ofertas/**/criativos/**/referencias/
+analises/**/material/anuncios/
+*.mp4
+!_templates/**/*.mp4
+
+# sistema
+.DS_Store
+Thumbs.db

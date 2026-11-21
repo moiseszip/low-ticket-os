@@ -1,0 +1,14 @@
+{
+  "name": "low-ticket-os-scripts",
+  "private": true,
+  "type": "module",
+  "description": "Dependências Node dos scripts do workspace (PDF de entregável, testes de clique da LP).",
+  "scripts": {
+    "pdf": "node entregavel/render_pdf.mjs",
+    "testar-lp": "node lp/testar_clique.mjs"
+  },
+  "dependencies": {
+    "pdf-lib": "^1.17.1",
+    "playwright": "^1.49.0"
+  }
+}

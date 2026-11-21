@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Exemplo de entregável</title>
+<!--
+  Modelo de entregável em PDF (A4). Cada elemento section com a classe "page" = uma página.
+  Troque os tokens de cor e fonte pelos do design system da oferta.
+  Conteúdo denso (tabelas, listas, letras para caligrafia) fica SEMPRE em HTML: texto 100% legível e selecionável.
+  Ilustrações podem vir do gerador de imagem como <img>.
+  Gere este HTML a partir de dados (um build.mjs/py da oferta que lê um JSON e escreve as seções).
+-->
+<style>
+  @page { size: A4; margin: 0; }
+  :root {
+    --marca: #1f4e79;
+    --marca-suave: #e8f0f8;
+    --destaque: #f2a900;
+    --tinta: #1b1b1f;
+    --apoio: #5b5f6b;
+    --fundo: #ffffff;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: "Helvetica Neue", Arial, sans-serif; color: var(--tinta); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  section.page {
+    width: 210mm; height: 297mm; padding: 18mm 16mm 16mm;
+    background: var(--fundo); position: relative; overflow: hidden;
+    page-break-after: always; break-after: page;
+  }
+  section.page:last-child { page-break-after: auto; break-after: auto; }
+  .capa { background: var(--marca); color: #fff; display: flex; flex-direction: column; justify-content: center; }
+  .capa h1 { font-size: 40pt; line-height: 1.05; font-weight: 900; }
+  .capa p { font-size: 15pt; margin-top: 8mm; opacity: .9; }
+  .selo { display: inline-block; background: var(--destaque); color: var(--tinta); font-weight: 800; padding: 2mm 4mm; border-radius: 2mm; margin-bottom: 8mm; font-size: 11pt; }
+  .topo { display: flex; justify-content: space-between; align-items: baseline; border-bottom: .6mm solid var(--marca); padding-bottom: 3mm; margin-bottom: 7mm; }
+  .topo h2 { font-size: 20pt; color: var(--marca); }
+  .topo span { font-size: 10pt; color: var(--apoio); }
+  .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm; }
+  .card { background: var(--marca-suave); border-radius: 3mm; padding: 5mm; }
+  .card h3 { font-size: 12.5pt; color: var(--marca); margin-bottom: 2mm; }
+  .card p { font-size: 10.5pt; line-height: 1.45; }
+  table { width: 100%; border-collapse: collapse; font-size: 10.5pt; margin-top: 6mm; }
+  th { background: var(--marca); color: #fff; text-align: left; padding: 2.5mm; }
+  td { padding: 2.5mm; border-bottom: .3mm solid #d7dce4; }
+  .rodape { position: absolute; bottom: 8mm; left: 16mm; right: 16mm; display: flex; justify-content: space-between; font-size: 8.5pt; color: var(--apoio); }
+</style>
+</head>
+<body>
+
+<section class="page capa">
+  <span class="selo">GUIA VISUAL</span>
+  <h1>Resumos visuais de [Tema] para [transformação]</h1>
+  <p>Por [Nome do autor]. Material digital para estudo e consulta rápida.</p>
+</section>
+
+<section class="page">
+  <div class="topo"><h2>Capítulo 1 · [Assunto]</h2><span>Página 2</span></div>
+  <div class="cards">
+    <div class="card"><h3>Conceito</h3><p>Definição curta, em linguagem do público, com o termo técnico em destaque.</p></div>
+    <div class="card"><h3>Como aplicar</h3><p>Passo a passo em 3 linhas. Nada de parágrafo longo.</p></div>
+    <div class="card"><h3>Erro comum</h3><p>O que quase todo mundo faz errado e como evitar.</p></div>
+    <div class="card"><h3>Resumo</h3><p>Uma frase que a pessoa consegue lembrar na prova ou no trabalho.</p></div>
+  </div>
+  <table>
+    <tr><th>Item</th><th>Quando usar</th><th>Atenção</th></tr>
+    <tr><td>Exemplo A</td><td>Situação típica</td><td>Detalhe que confunde</td></tr>
+    <tr><td>Exemplo B</td><td>Outra situação</td><td>Outro detalhe</td></tr>
+  </table>
+  <div class="rodape"><span>[Nome do produto]</span><span>[Nome do autor]</span></div>
+</section>
+
+</body>
+</html>

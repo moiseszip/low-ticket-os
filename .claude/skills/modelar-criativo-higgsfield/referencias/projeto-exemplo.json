@@ -1,0 +1,92 @@
+{
+  "nome": "4-motivos-sousplat",
+  "oferta": "minha-oferta",
+  "referencia": {
+    "ad_library": "https://www.facebook.com/ads/library/?id=ID_DO_ANUNCIO",
+    "duracao": 59.04,
+    "pps": 3.84
+  },
+  "orcamento_creditos": 700,
+  "lingua": "pt",
+
+  "persona": {
+    "imagem": "persona/persona.png",
+    "descricao": "mulher brasileira 45+, fios brancos, blusa de crochê terracota, cantinho com sousplats na parede e cones de barbante"
+  },
+
+  "voz": {
+    "modelo": "text2speech_v2",
+    "variant": "minimax",
+    "voice_id": "3c2b83c0-2e0a-5ae8-998a-a5fe71b7eccd",
+    "voice_type": "preset",
+    "nome": "Helena",
+    "atempo": 1.12,
+    "pausa_max_ms": 90
+  },
+  "vozes_teste": [
+    {"variant": "minimax", "voice_id": "3c2b83c0-2e0a-5ae8-998a-a5fe71b7eccd", "nome": "Helena"},
+    {"variant": "minimax", "voice_id": "984ddbed-83d3-5388-84ce-02fe6c24befa", "nome": "Livia"},
+    {"variant": "elevenlabs", "voice_id": "75e72cd5-011b-4130-a474-e8b1ab341f04", "nome": "Marisol"},
+    {"variant": "elevenlabs", "voice_id": "530df032-c311-483b-a750-cb3c9e1bcdfd", "nome": "Gia"},
+    {"variant": "elevenlabs", "voice_id": "023ebf5e-1970-40d8-825c-a5ef6a1dd4ff", "nome": "Ines"},
+    {"variant": "elevenlabs", "voice_id": "984ddbed-83d3-5388-84ce-02fe6c24befa", "nome": "Livia EL"}
+  ],
+
+  "talking": {
+    "modelo": "seedance_2_5",
+    "resolucao": "720p",
+    "aspect_ratio": "9:16",
+    "sim_minima": 0.75,
+    "max_tentativas": 3,
+    "cena": "Keep exactly the same face, hair, earrings, clothing and the same background as the reference image."
+  },
+
+  "blocos": [
+    {"id": "b1", "funcao": "gancho", "fala": "E se aquela horinha livre depois da janta virasse dinheiro, em vez de você trabalhar o mês inteiro só pra ver o salário sumir nas contas?", "gesto": "She raises her index finger toward the camera at the start and lifts her eyebrows on the question."},
+    {"id": "b2", "funcao": "promessa", "fala": "Presta atenção nesses quatro motivos que fazem do sousplat de crochê o jeito mais simples de começar, principalmente agora, com o Natal chegando.", "gesto": "When she says 'quatro motivos' she holds up four fingers toward the camera, then leans in slightly with a knowing smile."},
+    {"id": "b3", "funcao": "motivo 1", "selo": "1", "fala": "O primeiro: brasileiro adora receber a família em casa, e do Natal ao Ano Novo todo mundo quer uma mesa bonita. Sousplat de crochê é decoração e presente ao mesmo tempo.", "gesto": "At the very start she holds up one finger toward the camera, then smiles warmly and nods."},
+    {"id": "b4a", "funcao": "motivo 2", "selo": "2", "fala": "O segundo: sousplat não tem P, M ou G, então não tem como errar a medida.", "gesto": "At the very start she holds up two fingers toward the camera, then gives a playful little shrug."},
+    {"id": "b4b", "funcao": "motivo 2 (cont.)", "fala": "Você faz no seu ritmo, na hora que der, vende pelo WhatsApp e pelo Instagram, e não tem chefe nenhum controlando o seu horário.", "gesto": "Relaxed shoulders, she gestures openly with her free hand, tilts her head and smiles."},
+    {"id": "b5", "funcao": "motivo 3", "selo": "3", "fala": "O terceiro: crochê acalma. Um estudo com mais de oito mil pessoas que crochetam mostrou que quase nove em cada dez se sentem mais calmas com a agulha na mão.", "gesto": "At the very start she holds up three fingers toward the camera, then takes a calm breath and softens her expression."},
+    {"id": "b6a", "funcao": "motivo 4", "selo": "4", "fala": "E o quarto: você não precisa aprender sozinha catando vídeo, nem gastar com fio errado.", "gesto": "At the very start she holds up four fingers toward the camera, then shakes her head slightly."},
+    {"id": "b6b", "funcao": "motivo 4 (produto)", "fala": "Tá tudo num lugar só: mais de trezentas receitas com passo a passo, gráfico e a lista de material de cada peça, e dá pra começar a primeira ainda essa semana.", "gesto": "She counts on the fingers of her free hand while listing things, and ends with an encouraging smile."},
+    {"id": "b7", "funcao": "CTA", "fala": "Gostou? Então toca agora em Saiba mais e dá uma olhada em tudo que tem lá dentro.", "gesto": "While saying 'toca agora em Saiba mais' she points down toward the bottom of the screen, and at the very end gives a thumbs up."}
+  ],
+
+  "broll": {
+    "estilo": "Photorealistic smartphone photo, natural warm window light, Brazilian home, palette terracotta, cream, sage green and light wood. Handmade crochet with realistic, coherent, well-defined stitches seen at medium distance. No text, no logos, no watermark, no people's faces.",
+    "movimento_padrao": "Realistic smartphone footage, crochet stitches stay crisp and unchanged, no new objects, no text.",
+    "planos": [
+      {"id": "s01", "bloco": "b1", "peso": 1, "fonte": "ia", "still": "A navy blue round handmade crochet placemat under a white ceramic plate on a light wood dining table, a green potted plant softly blurred in the background.", "movimento": "Slow gentle handheld push-in, the plant leaves sway very slightly."},
+      {"id": "s02", "bloco": "b1", "peso": 1, "fonte": "ia", "still": "A sage green round crochet placemat with a white plate and a folded linen napkin on a wooden table, a monstera leaf in the bottom left corner, light grey paneled wall.", "movimento": "Subtle slow handheld drift to the right, the monstera leaf moves slightly."},
+      {"id": "s09b", "bloco": "b3", "peso": 0.7, "fonte": "ia", "still": "High angle view of a light wooden dining table set with four round crochet placemats in terracotta, cream and sage green, each with an empty white plate, plants in the background.", "movimento": "Static shot, very subtle handheld movement."},
+      {"id": "s09a", "bloco": "b3", "peso": 0.8, "fonte": "edit", "base": "s09b", "in_point": 1.3, "edit": "Keep EXACTLY the same camera angle, framing, table, chairs, plants and lighting. Remove all the crochet placemats and plates so the table top is bare. Nothing else changes.", "movimento": "Static camera on the bare table. After one second a woman's hand enters from the right, snaps her fingers once above the empty table and pulls back out of frame. The table stays empty."},
+      {"id": "tela17", "bloco": "b6b", "peso": 1.4, "fonte": "tela", "tipo": "scroll", "imagens": ["../../referencias/modulos-originais/01.png", "../../referencias/modulos-originais/02.png", "../../referencias/modulos-originais/03.png"]},
+      {"id": "tela21", "bloco": "b6b", "peso": 1, "fonte": "tela", "tipo": "logo", "logo": "../../referencias/logo-trilha-original.png", "mockup": "../../referencias/mockup-hero-v2-original.png"}
+    ]
+  },
+
+  "barras": {
+    "topo": [["R$40", "vermelho"], [" de barbante vira jogo de ", "branco"], ["R$180", "amarelo"]],
+    "base": [["E o ", "branco"], ["Natal", "amarelo"], [" já tá chegando...", "branco"]]
+  },
+
+  "layout": {"fps": 30, "painel_esquerdo": 476, "painel_altura": 1070, "zoom_alternado": 1.09},
+  "musica": {"volume": 0.13, "bpm": 112, "seed": 7},
+
+  "claims": [
+    {"texto": "R$40 de barbante vira jogo de R$180", "fonte": "receita do acervo ~200 g/peça; barbante 1 kg R$29,90; Elo7 jogo de 6 a R$180", "status": "conferido 2026-09-15"},
+    {"texto": "8 mil pessoas, quase 9 em 10 mais calmas", "fonte": "Burns & Van der Meer 2021, Happy Hookers", "status": "conferido"}
+  ],
+
+  "meta": {
+    "ad_account_id": "PREENCHER",
+    "adset_id": "PREENCHER",
+    "page_id": "PREENCHER",
+    "nome_anuncio": "Vid Ad Sousplat 4 Motivos",
+    "primary_text": "🎄 Faz crochê ou sempre quis aprender, e quer um dinheiro extra nesse Natal? 🛑 Então para tudo e assiste esse vídeo:",
+    "titulo": "+300 receitas de crochê com passo a passo",
+    "cta": "LEARN_MORE",
+    "link": "https://sua-lp.vercel.app/"
+  }
+}

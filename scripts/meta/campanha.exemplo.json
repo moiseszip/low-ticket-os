@@ -1,0 +1,24 @@
+{
+  "conta": "act_SEU_ID_DE_CONTA",
+  "moeda": "BRL",
+  "fuso": "-03:00",
+  "brl_por_usd": 5.5,
+  "estrutura": "1-1-X",
+  "por_criativo": 10,
+  "ativar": false,
+  "advantage_publico": false,
+  "pixel_id": "ID_DO_PIXEL_DA_OFERTA",
+  "page_id": "ID_DA_PAGINA",
+  "instagram_user_id": "ID_DO_INSTAGRAM",
+  "pais": ["BR"],
+  "link": "https://sua-lp.vercel.app/",
+  "nome_campanha": "[BR]-[CBO]-[1-1-X]-[{inicio}]- Nome da Oferta",
+  "nome_conjunto": "CJ 01 - Aberto - Feed/Stories/Reels",
+  "titulo": "Título curto do anúncio",
+  "texto": "Primary text do anúncio, sem travessão.\n\nO que a pessoa recebe, para quem é, preço como alívio e chamada.",
+  "cta": "LEARN_MORE",
+  "anuncios": [
+    { "nome": "[{hoje}] Vid 01 Gancho Dor", "arquivos": ["../criativos/final/v01-9x16.mp4"] },
+    { "nome": "[{hoje}] Img 02 Antes Depois", "arquivos": ["../criativos/final/e02-4x5.jpg", "../criativos/final/e02-9x16.jpg"] }
+  ]
+}

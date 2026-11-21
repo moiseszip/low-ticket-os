@@ -1,0 +1,8 @@
+node_modules/
+.next/
+.venv/
+.vercel/
+*.mp4
+*.mov
+*.wav
+*.pdf
