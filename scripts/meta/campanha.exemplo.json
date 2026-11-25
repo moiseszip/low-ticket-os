@@ -3,6 +3,7 @@
   "moeda": "BRL",
   "fuso": "-03:00",
   "brl_por_usd": 5.5,
+  "rastreamento": "utmify",
   "estrutura": "1-1-X",
   "por_criativo": 10,
   "ativar": false,

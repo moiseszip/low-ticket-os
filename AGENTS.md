@@ -28,7 +28,8 @@ Vale igual para Claude Code e Codex. As skills ficam em `.claude/skills/` (o Cod
 | produzir o PDF/produto | `criar-entregavel` |
 | copy da LP | `criar-copy-lp` |
 | LP (escolha de template + build) | `criar-landing-page` |
-| checkout, UTMs, pixels | `configurar-checkout-tracking` |
+| checkout, UTMs, pixels | `configurar-checkout-tracking` (rastreia pelo dash.zip → `trackear-oferta-dashzip`) |
+| trackear a LP / oferta no dash.zip | `trackear-oferta-dashzip` |
 | publicar a LP | `deploy-vercel` |
 | subir produto | `subir-produto-hotmart` / `subir-produto-cakto` / `subir-produto-wiapy` |
 | criativo de imagem | `criativo-estatico` |

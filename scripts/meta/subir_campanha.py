@@ -9,14 +9,14 @@ Regras embutidas (ver docs/conhecimento/metricas-validacao.md):
   - otimização por Purchase no pixel da oferta
   - idade 18-65+, todos os gêneros, Feed + Stories/Reels (FB e IG)
   - IA e aprimoramentos do anúncio OFF: cada criativo é conferido e o script ABORTA se algo vier ligado
-  - URL tags da UTMify em todo criativo
+  - URL tags em todo criativo: UTMify (padrão) ou dash.zip ("rastreamento": "dashzip", sem utm_term)
   - início no próximo 05:00 do fuso (teste novo nunca começa no meio do dia)
   - vídeo grande sobe em partes; vídeo > 95 MB é recomprimido antes
   - estado salvo em <campanha>.estado.json: rodar de novo retoma de onde parou, sem duplicar
 
 campanha.json (exemplo em scripts/meta/campanha.exemplo.json):
 {
-  "conta": "act_123", "moeda": "BRL", "fuso": "-03:00", "brl_por_usd": 5.5,
+  "conta": "act_123", "moeda": "BRL", "rastreamento": "utmify", "fuso": "-03:00", "brl_por_usd": 5.5,
   "estrutura": "1-1-X", "por_criativo": 10, "ativar": false,
   "pixel_id": "123", "page_id": "123", "instagram_user_id": "178...",
   "pais": ["BR"], "link": "https://minha-lp.vercel.app/",
@@ -57,6 +57,15 @@ URL_TAGS = (
     "&utm_medium={{adset.name}}|{{adset.id}}"
     "&utm_content={{ad.name}}|{{ad.id}}&utm_term={{placement}}"
 )
+# dash.zip: sem utm_term, que o tracker usa como indexador da sessão (stl_).
+URL_TAGS_DASHZIP = URL_TAGS.replace("&utm_term={{placement}}", "")
+
+
+def url_tags(cfg):
+    r = cfg.get("rastreamento", "utmify").lower()
+    if r not in {"utmify", "dashzip"}:
+        raise ValueError(f"rastreamento '{r}' inválido: use utmify ou dashzip")
+    return URL_TAGS_DASHZIP if r == "dashzip" else URL_TAGS
 ATRIBUICAO = [
     {"event_type": "CLICK_THROUGH", "window_days": 7},
     {"event_type": "VIEW_THROUGH", "window_days": 1},
@@ -204,20 +213,20 @@ def criar_criativo(cfg, nome, assets, eh_video):
             "optimization_type": "PLACEMENT"}}
     corpo = api("POST", f"{cfg['conta']}/adcreatives", {"name": f"CR-{nome}", **spec,
                                                          "contextual_multi_ads": {"enroll_status": "OPT_OUT"},
-                                                         "url_tags": URL_TAGS})
+                                                         "url_tags": url_tags(cfg)})
     pausa()
     return corpo["id"]
 
 
-def conferir_ia_off(creative_id):
+def conferir_ia_off(creative_id, esperado):
     d = api("GET", creative_id, {"fields": "degrees_of_freedom_spec,contextual_multi_ads,url_tags"})
     recursos = (d.get("degrees_of_freedom_spec") or {}).get("creative_features_spec") or {}
     ligados = {k: v for k, v in recursos.items() if (v or {}).get("enroll_status") != "OPT_OUT"}
     multi = (d.get("contextual_multi_ads") or {}).get("enroll_status")
     if ligados or multi == "OPT_IN":
         raise RuntimeError(f"criativo {creative_id} com IA/aprimoramento ligado: {list(ligados)} multi={multi}. Abortado.")
-    if d.get("url_tags") != URL_TAGS:
-        raise RuntimeError(f"criativo {creative_id} sem as URL tags da UTMify")
+    if d.get("url_tags") != esperado:
+        raise RuntimeError(f"criativo {creative_id} com URL tags diferentes do esperado")
     return len(recursos)
 
 
@@ -268,6 +277,7 @@ def checar(cfg, base):
         print(f"AVISO: a conta é em {acc['currency']} e a config diz {cfg.get('moeda')}. Corrija 'moeda' (o orçamento é convertido por ela).")
     print(f"Pixel {cfg['pixel_id']} conectado à conta: {cfg['pixel_id'] in pixels}")
     print(f"Estrutura {cfg['estrutura']} | {n} anúncio(s) | R$ {cfg['por_criativo']}/criativo | total R$ {total}/dia | ativar={cfg.get('ativar', False)}")
+    print(f"Rastreamento: {cfg.get('rastreamento', 'utmify')} | URL tags: {url_tags(cfg)}")
     print(f"Link: {cfg['link']}\nTítulo ({len(cfg['titulo'])} car.): {cfg['titulo']}\nTexto: {cfg['texto'][:200]}...")
     if "—" in cfg["titulo"] + cfg["texto"]:
         print("AVISO: travessão (—) na copy. Reescrever antes de subir.")
@@ -342,7 +352,7 @@ def main():
                 salvar()
             conjunto = st["conjuntos"][chave]
         cid = criar_criativo(cfg, nome, assets, eh_video)
-        n_recursos = conferir_ia_off(cid)
+        n_recursos = conferir_ia_off(cid, url_tags(cfg))
         ad = api("POST", f"{cfg['conta']}/ads", {"name": nome, "adset_id": conjunto, "creative": {"creative_id": cid},
                                                   "status": "ACTIVE"})["id"]
         pausa()

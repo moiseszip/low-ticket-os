@@ -21,7 +21,7 @@
 | 8 | Copy | `criar-copy-lp` | produto + template | `copy/<mercado>/landing-page/copy-v1.md` |
 | 9 | LP | `criar-landing-page` | copy + design system | `landing-page/<mercado>/` (Next.js) |
 | 10 | Checkout | `subir-produto-*` | oferta + entregável | links de checkout por plano |
-| 11 | Tracking | `configurar-checkout-tracking` | links + pixels | CTAs com UTMs, pixels no head |
+| 11 | Tracking | `configurar-checkout-tracking` (dash.zip: `trackear-oferta-dashzip`) | links + pixels | CTAs com UTMs, pixels no head (dash.zip: código da página + webhook no painel) |
 | 12 | Publicar | `deploy-vercel` | LP | URL no ar + teste de clique passando |
 | 13 | Estáticos | `criativo-estatico` | oferta + LP + referências | `criativos/estaticos-<data>/final/` (4:5 + 9:16) |
 | 14 | Vídeos | `criativo-video` → `editar-video` | roteiro + cenas | `criativos/videos-<data>/final/*.mp4` |
