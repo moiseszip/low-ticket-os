@@ -1,6 +1,6 @@
 ---
 name: subir-anuncios-meta
-description: Sobe campanhas de vendas de uma oferta low ticket na Meta (1-1-X em CBO ou ABO 1-1-1), com vídeos e estáticos, IA e aprimoramentos OFF verificados, URL tags da UTMify e início no dia seguinte às 05:00. Usar quando disser "subir anúncios", "subir campanha", "colocar os criativos no ar", "testar os criativos na Meta".
+description: Sobe campanhas de vendas de uma oferta low ticket na Meta (1-1-X em CBO ou ABO 1-1-1), com vídeos e estáticos, IA e aprimoramentos OFF verificados, URL tags (UTMify ou dash.zip) e início no dia seguinte às 05:00. Usar quando disser "subir anúncios", "subir campanha", "colocar os criativos no ar", "testar os criativos na Meta".
 ---
 
 # Subir anúncios na Meta
@@ -12,7 +12,7 @@ Ler antes: `perfil/operador.md` (verba, aprovação), `docs/conhecimento/metrica
 ## Pré-requisitos
 
 - LP no ar e **teste de clique passando** (`scripts/lp/testar_clique.mjs`).
-- Pixel **da oferta** conectado à conta de anúncio; Purchase chegando pela UTMify.
+- Pixel **da oferta** conectado à conta de anúncio; Purchase chegando pela UTMify ou, com dash.zip, pelo webhook do painel (skill `trackear-oferta-dashzip` concluída até a etapa 4).
 - Criativos finais: vídeo 9:16 (1 arquivo) e/ou estático em 4:5 + 9:16 (`scripts/estatico/formatos.py`).
 - Primary text e título aprovados (zero travessão).
 - Acesso por API: `META_ACCESS_TOKEN` (System User do Business Manager com `ads_management` e acesso à conta, à página e ao pixel) no `.env`. Alternativa: MCP da Meta com a conta do operador.
@@ -20,6 +20,7 @@ Ler antes: `perfil/operador.md` (verba, aprovação), `docs/conhecimento/metrica
 ## Passo 1. Montar o `campanha.json`
 
 Copiar `scripts/meta/campanha.exemplo.json` para `ofertas/<slug>/trafego/<data>-<nome>.json` e preencher:
+- `rastreamento`: `utmify` (padrão) ou `dashzip`, conforme o `perfil/operador.md`. Com `dashzip` as URL tags saem **sem `utm_term`**, que o dash.zip usa para a sessão.
 - `conta`, `moeda` (BRL/USD da conta), `fuso`, `pixel_id`, `page_id`, `instagram_user_id`, `link` (LP).
 - `estrutura`: **`1-1-X`** (1 CBO, 1 conjunto aberto, N criativos, orçamento = por_criativo × N) para testar vários criativos; **`ABO-1-1-1`** (1 conjunto por criativo com orçamento próprio) para validação controlada.
 - `por_criativo` em reais (R$ 10 é um bom começo; validação de oferta: R$ 50-70/dia no total). Conta em USD: o script converte por `brl_por_usd`.
@@ -44,7 +45,7 @@ Confere conta (status, moeda, fuso), pixel conectado, arquivos e copy (avisa tra
 O script:
 - cria campanha (objetivo Vendas) e conjunto(s) otimizando por **Purchase** no pixel, idade 18-65+, Feed + Stories/Reels;
 - sobe vídeo em partes (recomprime acima de 95 MB) e imagens;
-- cria o criativo com as URL tags da UTMify e **confere IA e aprimoramentos OFF**, abortando se algo vier ligado;
+- cria o criativo com as URL tags do rastreamento escolhido e **confere IA e aprimoramentos OFF**, abortando se algo vier ligado;
 - agenda o início no **próximo 05:00** (teste novo nunca começa no meio do dia);
 - salva o estado ao lado do JSON: rodar de novo retoma sem duplicar.
 

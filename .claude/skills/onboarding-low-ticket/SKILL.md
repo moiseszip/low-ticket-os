@@ -27,7 +27,7 @@ Uma conversa curta que vira `perfil/operador.md`. Esse arquivo é lido por todas
 5. Mercados: Brasil, LATAM em espanhol, EUA/Europa em inglês, outro.
 6. Plataforma de pagamento: Hotmart, Cakto, Wiapy, Kiwify, outra, ainda não tem. (Referência: Cakto/Wiapy no Brasil, Hotmart para fora.)
 7. Tráfego: Meta Ads (padrão do kit), Google, TikTok, orgânico.
-8. Rastreamento: UTMify, outro, nenhum ainda.
+8. Rastreamento: UTMify, dash.zip (painel próprio; anotar o endereço do painel), outro, nenhum ainda.
 
 ## Bloco 3. Como gosta de trabalhar
 

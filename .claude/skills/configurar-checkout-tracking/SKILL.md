@@ -5,6 +5,8 @@ description: Liga a LP ao checkout (Hotmart, Cakto, Wiapy ou outro) com UTMs, sc
 
 # Checkout e tracking na LP
 
+> **Rastreia pelo dash.zip?** (`perfil/operador.md` → Rastreamento: dash.zip) Não use esta skill: siga `trackear-oferta-dashzip`. Lá a LP não leva Pixel colado nem UTMify, só o código da página do painel.
+
 Ler antes: `docs/conhecimento/tracking.md` (todos os gotchas vêm de lá) e `ofertas/<slug>/STATUS.md` (links de checkout, IDs de pixel).
 
 ## Pré-requisitos

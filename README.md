@@ -24,6 +24,7 @@ O agente clona, instala as dependências, conecta o que você usa e começa o on
 | Produto | PDF do entregável, bônus, capas e mockups (HTML→PDF ou IA de imagem) | `criar-entregavel` |
 | Landing page | escolha entre 3 templates (com preview), copy, design system, build e deploy | `criar-copy-lp`, `criar-landing-page`, `deploy-vercel` |
 | Checkout | produto na Hotmart, Cakto ou Wiapy + UTMs, pixel Meta e UTMify | `subir-produto-*`, `configurar-checkout-tracking` |
+| Tracking com dash.zip | painel, integrações, página, checkout e anúncios conferidos em ordem, sem Pixel colado nem UTMify | `trackear-oferta-dashzip` |
 | Criativos | estáticos (Codex na mesma sessão ou em paralelo, ou a IA que você tiver) e vídeos | `criativo-estatico`, `criativo-video`, `modelar-criativo-higgsfield` |
 | Edição | montagem local: gancho, zoom fluido, rolagem do PDF, legendas, trilha, motion | `editar-video` |
 | Anúncios | campanha 1-1-X ou ABO na Meta, IA OFF verificada, início às 05:00 | `subir-anuncios-meta` |

@@ -7,6 +7,8 @@ Arquitetura padrão de uma LP low ticket:
 3. **Purchase** chega pelo servidor: o checkout (Hotmart, Cakto, Wiapy) manda o webhook para a UTMify, e a UTMify faz o postback via API de Conversões da Meta. **Não se implementa CAPI na LP.**
 4. **Um Meta Pixel novo e um pixel UTMify novo por oferta.** Reaproveitar pixel de outra oferta mistura sinal.
 
+**Alternativa: dash.zip.** Quem roda o próprio [dash.zip](https://github.com/moiseszip/dashzip) troca os itens 1 a 3 pelo código da página do painel (que carrega o Pixel e manda PageView/IC com o mesmo `eventID` da API de Conversões) e pelo webhook do checkout apontando para o painel. Os dois juntos na mesma LP duplicam eventos. Os gotchas da UTMify abaixo não se aplicam. Processo: skill `trackear-oferta-dashzip`.
+
 ## Gotchas críticos
 
 ### "Invalid ID" da UTMify (perde 100% dos eventos, sem erro visível)

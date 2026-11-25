@@ -19,7 +19,8 @@
 - Mercados: BR / LATAM (ES) / EUA (EN) / outro
 - Checkout: Hotmart / Cakto / Wiapy / Kiwify / outro / ainda não tem
 - Tráfego: Meta / Google / TikTok / orgânico
-- Rastreamento: UTMify / outro / nenhum
+- Rastreamento: UTMify / dash.zip / outro / nenhum
+- dash.zip (se usar): endereço do painel e domínio(s) de coleta `track.<domínio>`
 
 ## Como gosta de trabalhar
 
